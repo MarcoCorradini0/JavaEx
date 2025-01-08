@@ -47,7 +47,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Scelta non valida.");break;
-        }
+            }
         if (figura != null) {
             System.out.println("Perimetro: " + figura.perimetro());
             System.out.println("Area: " + figura.area());
