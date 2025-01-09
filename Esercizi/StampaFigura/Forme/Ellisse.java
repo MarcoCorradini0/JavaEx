@@ -30,7 +30,7 @@ public class Ellisse extends Forma {
             for (int x = (int) (-asseMaggioreIntero * fattoreScalaX); x <= asseMaggioreIntero * fattoreScalaX; x++) {
                 if ((Math.pow(x / fattoreScalaX, 2) / Math.pow(asseMaggioreIntero, 2)) +
                     (Math.pow(y, 2) / Math.pow(asseMinoreIntero, 2)) <= 1) {
-                    System.out.print("*");
+                    System.out.print("°");
                 } else {
                     System.out.print(" ");
                 }

@@ -26,7 +26,7 @@ public class Rettangolo extends Forma {
         int altezzaIntera = (int) Math.round(altezza);
         for (int i = 0; i < altezzaIntera; i++) {
             for (int j = 0; j < baseIntera; j++) {
-                System.out.print("*");
+                System.out.print("°");
             }
             System.out.println();
         }

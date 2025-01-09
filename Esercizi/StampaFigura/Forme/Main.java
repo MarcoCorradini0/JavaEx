@@ -1,6 +1,6 @@
+package StampaFigura.Forme;
 //Chiedere all'utente quale figura vuole stampare, chiedere i parametri per stamparla, stampare la figura, il perimetro e l'area.
 import java.util.Scanner;
-import StampaFigura.Forme.*;
 
 public class Main {
     public static void main(String[] args) {

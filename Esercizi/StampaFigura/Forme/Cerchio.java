@@ -16,7 +16,7 @@ public class Cerchio extends Ellisse {
         for (int y = -raggioIntero; y <= raggioIntero; y++) {
             for (int x = (int) (-raggioIntero * fattoreScalaX); x <= raggioIntero * fattoreScalaX; x++) {
                 if (Math.sqrt((x / fattoreScalaX) * (x / fattoreScalaX) + y * y) <= raggioIntero) {
-                    System.out.print("*");
+                    System.out.print("°");
                 } else {
                     System.out.print(" ");
                 }

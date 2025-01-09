@@ -14,7 +14,7 @@ public class Quadrato extends Rettangolo {
         int latoIntero = (int) Math.round(getBase());
         for (int i = 0; i < latoIntero; i++) {
             for (int j = 0; j < latoIntero; j++) {
-                System.out.print("*");
+                System.out.print("°");
             }
             System.out.println();
         }
