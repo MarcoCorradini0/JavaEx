@@ -16,13 +16,13 @@ public class Main {
         nomi.add("Koopa");
         nomi.add("Waluigi");
         nomi.add("Wario");
-        nomi.add("Rosalina"); 
-        nomi.add("Axel");  
+        nomi.add("Rosalina");
+        nomi.add("Axel");
 
         Iterator<String> iterator = nomi.iterator();
         while (iterator.hasNext()) {
             String nome = iterator.next();
-            if (nome.contains("a")||nome.contains("A")) {
+            if (nome.contains("a") || nome.contains("A")) {
                 iterator.remove();
             }
         }
