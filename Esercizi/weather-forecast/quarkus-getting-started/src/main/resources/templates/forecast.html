@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Weather Forecast</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            color: yellow;
+        }
+
+        section {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input[type="number"] {
+            max-width: 150px;
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            section {
+                margin: 20px;
+                padding: 1.5rem;
+            }
+
+            input[type="number"] {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Previsioni Meteo</h1>
+
+    <!-- Form per l'inserimento della città e dei giorni -->
+    <section>
+        <form method="GET" action="/weather">
+            <label for="city">Città:</label>
+            <input type="text" id="city" name="city" placeholder="Inserisci il nome della città" required>
+
+            <label for="days">Numero di giorni:</label>
+            <input type="number" id="days" name="days" min="1" max="7" value="1">
+
+            <button type="submit">Cerca</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- Mostra i risultati del forecast -->
+    {#if forecastData}
+    <h2 style="text-align: center;">Risultati per la città scelta:</h2>
+    {#for item in forecastData}
+    <div style="max-width: 600px; margin: 0 auto; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
+        <p><strong>Data:</strong><br> 
+        {item.get("Data")}</p>
+        <p><strong>Temperatura:</strong><br>
+        {item.get("Temperatura")}</p>
+        <p><strong>Descrizione:</strong><br>
+        {item.get("Descrizione")}</p>
+    </div>
+    {/for}
+    {/if}
+</body>
+</html>
