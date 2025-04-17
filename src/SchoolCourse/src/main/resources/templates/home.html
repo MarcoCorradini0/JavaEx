@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <h1>Home</h1>
+
+    <form action="/" method="get">
+        <label for="name">Inserisci il nome del corso: </label>
+        <input type="text" name="name" id="name">
+        <button type="submit">Filtra</button>
+    </form>
+    <table>
+        <thead>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Total Hour</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+        </thead>
+        <tbody>
+            {#for c in courses}
+                <tr>
+                    <td>{c.code}</td>
+                    <td>{c.name}</td>
+                    <td>{c.description}</td>
+                    <td>{c.totalHour}</td>
+                    <td>{c.startDate}</td>
+                    <td>{c.endDate}</td>
+                    <td><form action="/update" method="get">
+                            <input name="code" type="hidden" value="{c.code}">
+                            <button type="submit">✏️</button>
+                        </form></td>
+                    <td><form action="/remove" method="post">
+                            <input name="code" type="hidden" value="{c.code}">
+                            <button type="submit">🗑️</button>
+                        </form></td>
+                </tr>
+            {/for}
+        </tbody>
+    </table>
+<button><a href="/addCourse">Aggiungi</a></button>
+</body>
+</html>
