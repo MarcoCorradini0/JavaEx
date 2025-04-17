@@ -1,16 +1,23 @@
 package web.api;
 
-import data.model.Lesson;
+import java.util.List;
+
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import service.LessonService;
 import web.api.model.ErrorMessage;
 import web.api.model.LessonCreateRequest;
 import web.api.model.LessonResponse;
-
-import java.util.List;
 
 @Path("/api/lesson")
 public class LessonApiResource {

@@ -1,15 +1,18 @@
 package web;
 
-import data.model.Course;
-import data.repository.CourseRepository;
-import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.Response;
-
 import java.net.URI;
 import java.sql.SQLException;
 import java.time.LocalDate;
+
+import data.model.Course;
+import data.repository.CourseRepository;
+import io.quarkus.qute.Template;
+import jakarta.ws.rs.FormParam;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Response;
 
 @Path("/update")
 public class UpdateResource {

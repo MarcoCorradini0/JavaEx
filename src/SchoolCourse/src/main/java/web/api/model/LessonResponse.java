@@ -1,8 +1,5 @@
 package web.api.model;
 
-import data.model.Course;
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 

@@ -1,17 +1,17 @@
 package web;
 
+import java.net.URI;
+import java.time.LocalDate;
+
 import data.model.Course;
 import data.repository.CourseRepository;
 import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
-
-import java.net.URI;
-import java.time.LocalDate;
 
 @Path("/addCourse")
 public class InsertingResource {
@@ -29,6 +29,7 @@ public class InsertingResource {
     }
 
     @POST
+    @Transactional
     public Response insert(@FormParam("name") String name, @FormParam("description") String description, @FormParam("totalHour") String totalHour, @FormParam("startDate")LocalDate startDate, @FormParam("endDate") LocalDate endDate) {
         if (name != null && totalHour != null && startDate != null && endDate != null &&
             !name.isEmpty() && !totalHour.isEmpty() && !startDate.isAfter(endDate)) {
