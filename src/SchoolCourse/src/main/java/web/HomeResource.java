@@ -35,8 +35,19 @@ public class HomeResource {
 
         return Response.ok(
                 home.data("courses", courses == null ? Collections.emptyList() : courses)
-                    .data("message", null)
-        ).build();
+                        .data("message", null))
+                .build();
+    }
+
+    @GET
+    @Path("/api/courses")
+    @jakarta.ws.rs.Produces("application/json")
+    public List<Course> getCourses(@QueryParam("name") String name) {
+        if (name == null || name.isEmpty()) {
+            return courseService.findAll();
+        } else {
+            return courseService.findByName(name);
+        }
     }
 
     @POST
@@ -47,8 +58,8 @@ public class HomeResource {
         if (code == null || code.isEmpty()) {
             return Response.ok(
                     home.data("courses", courses)
-                        .data("message", "Errore nel passaggio del codice per la rimozione")
-            ).build();
+                            .data("message", "Errore nel passaggio del codice per la rimozione"))
+                    .build();
         }
 
         try {
@@ -57,19 +68,19 @@ public class HomeResource {
 
             courses = courseService.findAll(); // Ricarica dopo la rimozione
             return Response.ok(
-                    home.data("courses", courses)
-                        .data("message", "Corso rimosso con successo")
-            ).build();
+                    home.data("courses", courses) //togliere per fare con fetch?
+                            .data("message", "Corso rimosso con successo"))
+                    .build();
         } catch (NumberFormatException e) {
             return Response.ok(
                     home.data("courses", courses)
-                        .data("message", "Codice non valido")
-            ).build();
+                            .data("message", "Codice non valido"))
+                    .build();
         } catch (Exception e) {
             return Response.ok(
                     home.data("courses", courses)
-                        .data("message", "Errore nella rimozione")
-            ).build();
+                            .data("message", "Errore nella rimozione"))
+                    .build();
         }
     }
 }
