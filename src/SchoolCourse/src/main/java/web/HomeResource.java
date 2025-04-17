@@ -1,13 +1,17 @@
 package web;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import data.model.Course;
 import data.repository.CourseRepository;
 import io.quarkus.qute.Template;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.FormParam;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
-
-import java.sql.SQLException;
-import java.util.List;
 
 @Path("/")
 public class HomeResource {
