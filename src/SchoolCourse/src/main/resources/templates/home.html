@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+
+<body>
+    <style>
+        .message {
+            background-color: #f0f0f0;
+            border-left: 4px solid #007BFF;
+            padding: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+    </style>
+
+    <h1>Home</h1>
+
+    {#if message}
+    <p class="message">{message}</p>
+    {/if}
+
+    <form action="/" method="get">
+        <label for="name">Inserisci il nome del corso: </label>
+        <input type="text" name="name" id="name">
+        <button type="submit">Filtra</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Total Hour</th>
+                <th>Date Start</th>
+                <th>Date End</th>
+                <th colspan="2">Azioni</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- to be replaced with fetched data -->
+            {#if courses.isEmpty}
+            <tr>
+                <td colspan="8">Nessun corso trovato.</td>
+            </tr>
+            {/if}
+
+            {#for c in courses}
+            <tr>
+                <td>{c.code}</td>
+                <td>{c.name}</td>
+                <td>{c.description}</td>
+                <td>{c.totalHour}</td>
+                <td>{c.startDate}</td>
+                <td>{c.endDate}</td>
+                <td>
+                    <form action="/update" method="get">
+                        <input name="code" type="hidden" value="{c.code}">
+                        <button type="submit">✏️</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/remove" method="post">
+                        <input name="code" type="hidden" value="{c.code}">
+                        <button type="submit">🗑️</button>
+                    </form>
+                </td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+
+    <button><a href="/addCourse">Aggiungi</a></button>
+</body>
+
+</html>

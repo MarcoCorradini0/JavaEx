@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" href="/insertingStyle.css">
+</head>
+<body>
+{#if message != null}
+    <h2>{message}</h2>
+{/if}
+<h2></h2>
+<form action="/update" method="post" class="formAdd">
+    <label for="name">Nome del corso:
+        <input type="text" id="name" name="name" required value="{course.name}">
+    </label>
+    <label for="description">Descrizione del corso:
+        <input type="text" id="description" name="description" value="{course.description}">
+    </label>
+    <label for="totalHour">Ore totali del corso:
+        <input type="number" id="totalHour" name="totalHour" required value="{course.totalHour}">
+    </label>
+    <label for="startDate">Data di inizio del corso:
+        <input type="date" id="startDate" name="startDate" required value="{course.startDate}">
+    </label>
+    <label for="endDate">Data di fine del corso:
+        <input type="date" id="endDate" name="endDate" required value="{course.endDate}">
+    </label>
+    <input type="hidden" name="codice" value="{course.code}">
+    <button type="submit">Invia</button>
+    <button type="reset" class="reset">Reset</button>
+</form>
+</body>
+</html>

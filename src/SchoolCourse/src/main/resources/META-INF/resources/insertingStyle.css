@@ -1,0 +1,36 @@
+:root{
+    font-family: Arial, serif;
+    font-size: 18px;
+}
+
+body{
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.formAdd{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 3rem;
+    background-color: antiquewhite;
+    border-radius: 15px;
+}
+
+.reset{
+    background-color: red;
+    color: white;
+}
+
+button{
+    width: 5vw;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+
