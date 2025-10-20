@@ -1,0 +1,49 @@
+name: Build and Test (Vite React)
+
+on:
+  push:
+    branches: [ GitWorkflow ]
+  pull_request:
+    branches: [ GitWorkflow ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./Esercizi/GithubWorkflow/GitWorkflow
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      # 2️⃣ Setup Node.js (ultima major stabile)
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Build project
+      - name: Build project
+        run: npm run build
+
+      # 5️⃣ Run tests (solo se presenti)
+      - name: Run tests
+        run: npm test --if-present
+
+      # 6️⃣ Upload build artifact (cartella dist)
+      - name: Upload build output
+        uses: actions/upload-artifact@v5
+        with:
+          name: vite-dist
+          path: Esercizi/GithubWorkflow/GitWorkflow/dist
