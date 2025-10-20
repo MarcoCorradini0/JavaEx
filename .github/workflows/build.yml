@@ -43,7 +43,7 @@ jobs:
 
       # 6️⃣ Upload build artifact (cartella dist)
       - name: Upload build output
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: vite-dist
           path: Esercizi/GithubWorkflow/GitWorkflow/dist
